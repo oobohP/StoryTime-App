@@ -2,8 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SCSDKScopes</key>
+	<array>
+		<string>https://auth.snapchat.com/oauth2/api/user.display_name</string>
+		<string>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</string>
+		<string>https://auth.snapchat.com/oauth2/api/user.external_id&lt;</string>
+	</array>
+	<key>SCSDKRedirectUrl</key>
+	<string>storytime://story-app</string>
+	<key>SCSDKClientId</key>
+	<string>e24116d4-b364-491f-8b89-db7b0dfcb652</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>itms-apps</string>
+		<string>snapchat</string>
+		<string>bitmoji-sdk</string>
 		<string>instagram-stories</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

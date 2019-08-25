@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import SCSDKCreativeKit
 
 class ViewController: UIViewController {
-    
+    var snapAPI: SCSDKSnapAPI?
+
     
     @IBOutlet weak var sharingImageView: UIImageView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        snapAPI = SCSDKSnapAPI()
     }
 
-    
+    // Share image view to instgram story
     @IBAction func shareToInstaStories(_ sender: Any) {
         
         if let storiesUrl = URL(string: "instagram-stories://share"){
@@ -46,6 +49,21 @@ class ViewController: UIViewController {
             }
         }
     }
+    //func for sending later maybe idk what htis does in documentation
+//    func sendToSnap(completionHandler: (Bool, Error?) ->()){
+//    view.isUserInteraction = false
+//    snapAPI?.startSending(photoContent) { [weak self] (error: Error?) in self?.view.isUserInteractionEnabled = true}
+//    }
+    
+    @IBAction func snapShare(_ sender: Any) {
+        let snapImage = sharingImageView.image // button greyed out if this doesn't exist?
+        let photo = SCSDKSnapPhoto(image: snapImage!) // do this safely so you can use guard or if no item element
+        let photoContent = SCSDKPhotoSnapContent(snapPhoto: photo)
+        
+        snapAPI?.startSending(photoContent, completionHandler: nil)
+    }
+    
+    
     
 }
 
